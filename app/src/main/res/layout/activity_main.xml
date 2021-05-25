@@ -42,7 +42,7 @@
         app:layout_constraintStart_toStartOf="@+id/btn_sergio" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/txt_instructions"
         android:layout_width="332dp"
         android:layout_height="72dp"
         android:text="Presione cualquiera de los botones para ver el curriculum de la persona correspondiente:"
