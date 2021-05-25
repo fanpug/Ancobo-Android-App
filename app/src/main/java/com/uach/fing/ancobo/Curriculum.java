@@ -1,5 +1,6 @@
 package com.uach.fing.ancobo;
 
+import com.uach.fing.ancobo.models.CurriculumData;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.gson.Gson;
@@ -21,13 +22,16 @@ import com.android.volley.toolbox.Volley;
 
 import java.io.Console;
 
+
 public class Curriculum extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        int identifier = Integer.parseInt(getIntent().getStringExtra("identifier"));
         setContentView(R.layout.activity_curriculum);
+
+        //Variable para recibir el url del curriculum de la persona seleccionada
+        String url = getIntent().getStringExtra("url");
 
         //Variables para cambiar el texto del curriculum
         TextView txt_name = findViewById(R.id.txt_name);
@@ -36,20 +40,30 @@ public class Curriculum extends AppCompatActivity {
         TextView txt_education_description = findViewById(R.id.txt_education_description);
         TextView txt_skills_description = findViewById(R.id.txt_skills_description);
 
-        //Switch para cambiar la informacion acorde al boton
-        switch(identifier){
-            case R.id.btn_humberto:
+        //Request queue para obtener los datos del servidor
+        RequestQueue queue = Volley.newRequestQueue(this);
 
-                break;
+        //StringRequest para hacer cosas de string request
+        StringRequest sr = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        CurriculumData cv  = new Gson().fromJson(response.toString(), CurriculumData.class);
+                        txt_name.setText(cv.name);
+                        txt_profession.setText(cv.profession);
+                        txt_about_me_description.setText(cv.aboutMe);
+                        txt_education_description.setText(cv.education);
+                        txt_skills_description.setText(cv.skills);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.e("server-request-error", error.getMessage());
+                    }
+                });
 
-            case R.id.btn_sergio:
-
-                break;
-
-            case R.id.btn_kevin:
-
-                break;
-        }
+        queue.add(sr);
 
     }
 }

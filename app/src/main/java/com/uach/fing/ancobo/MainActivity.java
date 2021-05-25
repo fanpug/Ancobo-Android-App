@@ -19,9 +19,30 @@ public class MainActivity extends AppCompatActivity {
     //Metodo para ir de una ventana de la aplicacion a otra, este caso la ventana del curriculum
     // y le pasa el id del boton que pidio el cambio de ventana
     public void goToActivityCurriculum(View view){
-        int identifier = view.getId();
+        //cambiar el link de ngrok (link del archivo predeterminado por si no furula ninguno)
+        String url = "https://aa8d4a52d781.ngrok.io/default.json";
+
+        //Switch para cambiar la informacion acorde al boton
+        switch(view.getId()){
+            case R.id.btn_humberto:
+                //cambiar el link de ngrok
+                url = "https://aa8d4a52d781.ngrok.io/default.json";
+                break;
+
+            case R.id.btn_sergio:
+                //cambiar el link de ngrok
+                url = "https://f35a2109beb2.ngrok.io/281854.json";
+                break;
+
+            case R.id.btn_kevin:
+                //cambiar el link de ngrok
+                url = "https://f35a2109beb2.ngrok.io/306007.json";
+                break;
+            default:
+        }
+
         Intent i = new Intent(this, Curriculum.class);
-        i.putExtra("identifier", identifier);
+        i.putExtra("url", url);
         startActivity(i);
     }
 }
