@@ -1,3 +1,20 @@
 <resources>
-    <string name="app_name">Ancobo</string>
+    <string name="app_name">Curriculums Dinamita</string>
+
+    <string name="txt_instruction">Presione cualquiera de los botones para ver el curriculum de la
+        persona correspondiente:</string>
+    <string name="btn_humberto">Humberto Navarro</string>
+    <string name="btn_sergio">Sergio Rodriguez</string>
+    <string name="btn_kevin">Kevin López</string>
+
+    <string name="img_desc">Curriculum Profile Picture</string>
+    <string name="txt_about_me">About Me</string>
+    <string name="txt_education">Education</string>
+    <string name="txt_skills">Skills</string>
+
+    <string name="txt_name">Default Name</string>
+    <string name="txt_profession">Default Profession</string>
+    <string name="lorem_ipsum">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a typespecimen book.</string>
+
+
 </resources>
