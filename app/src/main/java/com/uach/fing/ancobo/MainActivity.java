@@ -3,9 +3,9 @@ package com.uach.fing.ancobo;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.gson.Gson;
-import com.uach.fing.weather.models.Weather;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.ColorSpace;
 import android.os.Bundle;
 import android.util.Log;
@@ -27,5 +27,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
+
+    //Metodo para ir de una ventana de la aplicacion a otra, este caso la ventana del curriculum
+    public void irPantallaCurriculum(View view){
+        Intent i = new Intent(this, Curriculum.class);
+        startActivity(i);
     }
 }
