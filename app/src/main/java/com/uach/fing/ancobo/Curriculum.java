@@ -5,13 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.gson.Gson;
 
-import android.content.Context;
-import android.content.Intent;
-import android.graphics.ColorSpace;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.TextView;
+import android.widget.ImageView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -32,8 +29,10 @@ public class Curriculum extends AppCompatActivity {
 
         //Variable para recibir el url del curriculum de la persona seleccionada
         String url = getIntent().getStringExtra("url");
+        int pfp = getIntent().getIntExtra("pfp", 0);
 
         //Variables para cambiar el texto del curriculum
+        ImageView img_pfp = findViewById(R.id.img_pfp);
         TextView txt_name = findViewById(R.id.txt_name);
         TextView txt_profession = findViewById(R.id.txt_profession);
         TextView txt_about_me_description = findViewById(R.id.txt_about_me_description);
@@ -49,6 +48,23 @@ public class Curriculum extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         CurriculumData cv  = new Gson().fromJson(response.toString(), CurriculumData.class);
+
+                        switch(pfp){
+                            case 1:
+                                img_pfp.setImageResource(R.drawable.humberto_pfp);
+                                break;
+
+                            case 2:
+                                img_pfp.setImageResource(R.drawable.sergio_pfp);
+                                break;
+
+                            case 3:
+                                img_pfp.setImageResource(R.drawable.kevin_pfp);
+                                break;
+
+                            default:
+                                img_pfp.setImageResource(R.drawable.curriculum_default);
+                        }
                         txt_name.setText(cv.name);
                         txt_profession.setText(cv.profession);
                         txt_about_me_description.setText(cv.aboutMe);
