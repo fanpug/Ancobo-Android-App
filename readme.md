@@ -1,5 +1,5 @@
 # Proyecto Tercer Parcial
-Este repositorio fue creado para el proyecto del tercer parcial de la materia de Desarrollo Basado en Plataformas por Humberto Alejandro Navarro Andujo. El link al repositorio de la aplicacion de android es https://github.com/fanpug/Android-Curriculum-Server-App.
+Este repositorio fue creado para el proyecto del tercer parcial de la materia de Desarrollo Basado en Plataformas por Humberto Alejandro Navarro Andujo. El link al repositorio del servidor con los curriculums es https://github.com/fanpug/Android-Curriculum-Server-App.
 
 
 ## Descripción de los problemas
